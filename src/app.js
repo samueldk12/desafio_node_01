@@ -42,11 +42,13 @@ app.put("/repositories/:id", (request, response) => {
   if(projectIndex < 0)
     return response.status(400).json({error : "project not found"});
 
+  let likes = repositories[projectIndex].likes;
   const project = {
     id,
     title,
     url,
-    techs
+    techs,
+    likes
   };
 
   repositories[projectIndex] = project;
